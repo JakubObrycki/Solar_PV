@@ -32,7 +32,7 @@ class farm_roof(farm_PV):
     def __init__(self, straight_angle, acute_angle, angles):
         super().__init__(straight_angle, acute_angle, angles)
     '''    
-    def minimum_distance_pionowo(self):
+    def minimum_distance_pionowo(self): # tutaj to nie potrzebne bo dziedziczy po wyzszej klasie ale trzeba dac def jako nadpisz na zmaiany na dachu pionowe i poziome
         self.result = (self.straight_angle - self.Width_geographic - self.acute_angle)
         result_1 = (math.sin(math.radians(self.Angle_panel)) * self.Width_table)/(math.tan(math.radians(self.result)))
         print('='*35,f'Calculations for {self.__class__.__name__}...','='*35)
