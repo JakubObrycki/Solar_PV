@@ -48,7 +48,7 @@ class farm_roof(farm_PV):
         result_2 = (self.Width_table * math.sin(math.radians(self.angles - self.result - self.Angle_panel))/(math.sin(math.radians(self.result))))
         return(f'Result the minimum distance between tables [m]: {result_2:.2f} ')
     
-    
+if __name__ == "__main__":    
 distance = farm_PV(90,23.27,180)
 print(distance.minimum_distance_x())
 print(distance.minimum_distance_z())
