@@ -1,7 +1,6 @@
 import math
 class farm_PV:
     
-    
     def __init__(self, straight_angle, acute_angle, angles):
         self.straight_angle = straight_angle
         self.acute_angle = acute_angle
@@ -35,8 +34,8 @@ class farm_roof(farm_PV):
     
     
 #if __name__ == "__main__": 
-przyklady = [1,2]
-for przyklad in przyklady:
+# tylko 3 proby
+for przyklad in range(1,3):
     przyklady = int(input('Podaj 1-jesli farma pv lub 2-jesli farma na dachu: '))
     if przyklady == 1:
         distance = farm_PV(90,23.27,180)
@@ -44,16 +43,18 @@ for przyklad in przyklady:
         print(distance.minimum_distance_z())
         print('-'*70)
         przyklad_1 = input('Czy chcesz zakonczyc program, t- tak, n-nie ?: ')
-        if przyklad_1 == str('t'):
-            break
-        elif przyklad_1 == str('n'):
-            continue
+        if przyklad_1 == str('n') or str('N'):
+            continue 
+        elif przyklad_1 == str('t') or str('T'):
+            print('Koniec programu !')
+            break # NIE DZIALA WARUNEK KONTYNUOWANIA PO TYM JAK NACISKE N!!
         else:
             print('Wybierz t-tak lub n-nie ?')
             
     elif przyklady == 2:
         distance_1 = farm_roof(90,23.27,180)
         print(distance_1.minimum_distance_x())
+        print('-'*70)
         #print(distance_1.minimum_distance_z())
     else: 
         print('Wybierz 1 lub 2')
