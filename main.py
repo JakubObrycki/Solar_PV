@@ -23,7 +23,7 @@ class farm_PV:
         return(f'Result the minimum distance between tables [m]: {result_2:.2f} ')
     
 class farm_roof(farm_PV):
-    
+    pass
     '''
     def __init__(self, straight_angle, acute_angle, angles):
         super().__init__(straight_angle, acute_angle, angles)
@@ -36,6 +36,7 @@ while True:
     examples = int(input('Enter 1-if PV farm or 2-if rooftop farm PV: '))
     if examples == 1:
         print('You have chosen calculations for a PV farm on the ground')
+        print('='*70)
         distance = farm_PV(90,23.27,180)
         print(distance.minimum_distance_x())
         print(distance.minimum_distance_z())
@@ -49,6 +50,7 @@ while True:
            
     elif examples == 2:
         print('You have chosen calculations for a rooftop PV farm')
+        print('='*70)
         distance_1 = farm_roof(90,23.27,180)
         print(distance_1.minimum_distance_x())
         print('-'*70)
