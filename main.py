@@ -34,7 +34,6 @@ class farm_roof(farm_PV):
     
     
 #if __name__ == "__main__": 
-# tylko 3 proby
 while True:
     przyklady = int(input('Podaj 1-jesli farma pv lub 2-jesli farma na dachu: '))
     if przyklady == 1:
@@ -42,29 +41,22 @@ while True:
         print(distance.minimum_distance_x())
         print(distance.minimum_distance_z())
         print('-'*70)
-        przyklad_1 = input('Czy chcesz zakonczyc program, t- tak, n-nie ?: ')
-        if przyklad_1 == str('n') or str('N'):
-            continue 
-        elif przyklad_1 == str('t') or str('T'):
-            # NIE DZIALA WARUNEK KONTYNUOWANIA PO TYM JAK NACISKE N!!
-            print('Koniec programu !')
-            sys.exit()
+        przyklad_1 = input('Czy chcesz zakonczyc program, t- tak, n-nie ?: ') # tutaj dopracowac aby mozna bylo tylko na t zamknac program
+        if przyklad_1 == 'N' or przyklad_1 == 'n':  
+            continue
         else:
-            raise Exception('Wybierz tak lub nie')
-            
+            print('Koniec programu')
+            break
+           
     elif przyklady == 2:
         distance_1 = farm_roof(90,23.27,180)
         print(distance_1.minimum_distance_x())
         print('-'*70)
-        przyklad_1 = input('Czy chcesz zakonczyc program, t- tak, n-nie ?: ')
-        if przyklad_1 == str('n') or str('N'):
-            continue 
-        elif przyklad_1 == str('t') or str('T'):
-            # NIE DZIALA WARUNEK KONTYNUOWANIA PO TYM JAK NACISKE N!!
-            print('Koniec programu !')
-            sys.exit()
+        przyklad_1 = input('Czy chcesz zakonczyc program, t- tak, n-nie ?: ') # tutaj dopracowac aby mozna bylo tylko na t zamknac program
+        if przyklad_1 == 'N' or przyklad_1 == 'n':  
+            continue
         else:
-            raise Exception('Wybierz tak lub nie')
-    else: 
-        print('Wybierz 1 lub 2')
+            print('Koniec programu')
+            break
+
         
