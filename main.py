@@ -6,12 +6,9 @@ class farm_PV:
         self.acute_angle = acute_angle
         self.angles = angles
         self.Width_geographic = int(input('Please enter width geographic [*]: '))
-        # 
         self.Width_table = float(input('Please enter width of table PV [m]: '))
-        # 
         self.Lenght_edge = float(input('Please enter lenght of the table PV [m]: '))
         self.Angle_panel = int(input('Please enter inclination angle of panels [*]: '))
-        # 
         #self.Height_edge = float(input('Please enter height from the bottom edge [m]: '))
         # 
         
@@ -35,28 +32,31 @@ class farm_roof(farm_PV):
     
 #if __name__ == "__main__": 
 while True:
-    przyklady = int(input('Podaj 1-jesli farma pv lub 2-jesli farma na dachu: '))
-    if przyklady == 1:
+    print('-'*70)
+    examples = int(input('Enter 1-if PV farm or 2-if rooftop farm PV: '))
+    if examples == 1:
+        print('You have chosen calculations for a PV farm on the ground')
         distance = farm_PV(90,23.27,180)
         print(distance.minimum_distance_x())
         print(distance.minimum_distance_z())
         print('-'*70)
-        przyklad_1 = input('Czy chcesz zakonczyc program, t- tak, n-nie ?: ') # tutaj dopracowac aby mozna bylo tylko na t zamknac program
-        if przyklad_1 == 'N' or przyklad_1 == 'n':  
+        end_program = input('Do you want to end the program, y-yes, n-no?: ') # tutaj dopracowac aby mozna bylo tylko na t zamknac program
+        if end_program == 'N' or end_program == 'n':  
             continue
         else:
-            print('Koniec programu')
+            print('End')
             break
            
-    elif przyklady == 2:
+    elif examples == 2:
+        print('You have chosen calculations for a rooftop PV farm')
         distance_1 = farm_roof(90,23.27,180)
         print(distance_1.minimum_distance_x())
         print('-'*70)
-        przyklad_1 = input('Czy chcesz zakonczyc program, t- tak, n-nie ?: ') # tutaj dopracowac aby mozna bylo tylko na t zamknac program
-        if przyklad_1 == 'N' or przyklad_1 == 'n':  
+        end_program = input('Do you want to end the program, y-yes, n-no?: ') # tutaj dopracowac aby mozna bylo tylko na t zamknac program
+        if end_program == 'N' or end_program == 'n':  
             continue
         else:
-            print('Koniec programu')
+            print('End')
             break
 
         
