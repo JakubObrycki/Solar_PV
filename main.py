@@ -73,5 +73,5 @@ while True:
         else:
             print('End')
             break
-
-        
+    else:
+        print("Please enter value 1 or 2")
