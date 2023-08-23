@@ -1,4 +1,28 @@
 import math
+
+class Suraface:
+    
+    def __init__(self):
+        self.Width_of_area = int(input('Please enter Width_of_area PV [m]'))
+        self.lenght_of_area = int(input('Please enter lenght_of_area PV [m]'))
+        
+    # funckje do obliczania ilosci rzedow paneli na podstawie podania powierzchni pod instalacja ( w zaleznosci od usytuowania czy poziomo czy pionoowo )
+    # czyli trzeba wziac pod uwage parametry paneli
+    # w celu obliczenia ilosci paneli oraz rzedow 
+    # nalezy na koncu dac informacje o tym ze aplikacja nie bierze pod uwage zacienienia czyli obiektow znajdujacych sie obok instalacji
+    # mozna dac na koniec sume wszystkich paneli czy calkowita moc instalacji pv 
+    # w trakcie obliczania doboru rzedow i ilosci paneli wziac trzeba pod uwage elementy charakterystyczne dla np dachu ze 0,5m od krawedzi zgodnie z norma jakos tam itp 
+    # dla instalcji na ziemi natomiast musi pojawic sie (input np w zaleznosci od danych inwestora) lub podobnie jak w przypadku dachu dac np 1m od krawedzi dzialki
+        
+    '''
+    def panel_surface(self):
+        result_3 = self.Width_table * self.Lenght_edge
+        return result_3
+        
+    def ilosc_paneli_na_szerokosc(self):
+        result_4 = 
+    '''
+    
 class farm_PV:
     
     def __init__(self, straight_angle, acute_angle, angles):
@@ -6,11 +30,11 @@ class farm_PV:
         self.acute_angle = acute_angle
         self.angles = angles
         self.Width_geographic = int(input('Please enter width geographic [*]: '))
-        self.Width_table = float(input('Please enter width of table PV [m]: '))
-        self.Lenght_edge = float(input('Please enter lenght of the table PV [m]: '))
+        self.Width_table = int(input('Please enter width of table PV [m]: '))
+        self.Lenght_edge = int(input('Please enter lenght of the table PV [m]: '))
         self.Angle_panel = int(input('Please enter inclination angle of panels [*]: '))
         #self.Height_edge = float(input('Please enter height from the bottom edge [m]: '))
-        # 
+        
         
     def minimum_distance_x(self):
         self.result = (self.straight_angle - self.Width_geographic - self.acute_angle)
@@ -21,18 +45,8 @@ class farm_PV:
     def minimum_distance_z(self):
         result_2 = (self.Width_table * math.sin(math.radians(self.angles - self.result - self.Angle_panel))/(math.sin(math.radians(self.result))))
         return(f'Result the minimum distance between tables [m]: {result_2:.2f} ')
-
-
-    # funckje do obliczania ilosci rzedow paneli na podstawie podania powierzchni pod instalacja ( w zaleznosci od usytuowania czy poziomo czy pionoowo )
-    # czyli trzeba wziac pod uwage parametry paneli
-    # w celu obliczenia ilosci paneli oraz rzedow 
-    # nalezy na koncu dac informacje o tym ze aplikacja nie bierze pod uwage zacienienia czyli obiektow znajdujacych sie obok instalacji
-    # mozna dac na koniec sume wszystkich paneli czy calkowita moc instalacji pv 
-    # w trakcie obliczania doboru rzedow i ilosci paneli wziac trzeba pod uwage elementy charakterystyczne dla np dachu ze 0,5m od krawedzi zgodnie z norma jakos tam itp 
-    # dla instalcji na ziemi natomiast musi pojawic sie (input np w zaleznosci od danych inwestora) lub podobnie jak w przypadku dachu dac np 1m od krawedzi dzialki
+    
     # ewentualny zapis do pliku tekstowego
-
-
 
 
 class farm_roof(farm_PV):
@@ -75,3 +89,4 @@ while True:
             break
     else:
         print("Please enter value 1 or 2")
+
