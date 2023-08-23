@@ -1,6 +1,6 @@
 import math
 
-class Suraface:
+class Surface:
     
     def __init__(self):
         self.Width_of_area = int(input('Please enter Width_of_area PV [m]'))
