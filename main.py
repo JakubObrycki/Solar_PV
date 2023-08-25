@@ -1,19 +1,6 @@
 import math
 
-class Surface: # TA KLASA TYCZY SIE NOWEGO ALGORYTMU POSTEPOWANIA ( DO OBLICZANIA ILOSCI PANELI NA DZIALCE LUB DACHU)
-    
-    def __init__(self, straight_angle, acute_angle, angles):
-        self.straight_angle = straight_angle
-        self.acute_angle = acute_angle
-        self.angles = angles
-        self.Width_geographic = int(input('Please enter width geographic [*]: '))
-        self.Width_table = int(input('Please enter width of table PV [m]: '))
-        self.Lenght_edge = int(input('Please enter lenght of the table PV [m]: '))
-        self.Angle_panel = int(input('Please enter inclination angle of panels [*]: '))
-        #self.Height_edge = float(input('Please enter height from the bottom edge [m]: '))
-        
-        #self.Width_of_area = int(input('Please enter Width_of_area PV [m]'))
-        #self.lenght_of_area = int(input('Please enter lenght_of_area PV [m]'))
+# TA KLASA TYCZY SIE NOWEGO ALGORYTMU POSTEPOWANIA ( DO OBLICZANIA ILOSCI PANELI NA DZIALCE LUB DACHU)
         
     # funckje do obliczania ilosci rzedow paneli na podstawie podania powierzchni pod instalacja ( w zaleznosci od usytuowania czy poziomo czy pionoowo )
     # czyli trzeba wziac pod uwage parametry paneli
@@ -22,17 +9,24 @@ class Surface: # TA KLASA TYCZY SIE NOWEGO ALGORYTMU POSTEPOWANIA ( DO OBLICZANI
     # mozna dac na koniec sume wszystkich paneli czy calkowita moc instalacji pv 
     # w trakcie obliczania doboru rzedow i ilosci paneli wziac trzeba pod uwage elementy charakterystyczne dla np dachu ze 0,5m od krawedzi zgodnie z norma jakos tam itp 
     # dla instalcji na ziemi natomiast musi pojawic sie (input np w zaleznosci od danych inwestora) lub podobnie jak w przypadku dachu dac np 1m od krawedzi dzialki
-        
-    '''
-    def panel_surface(self):
-        result_3 = self.Width_table * self.Lenght_edge
-        return result_3
-        
-    def ilosc_paneli_na_szerokosc(self):
-        result_4 = 
-    '''
+class farm_PV:
     
-class farm_PV(Surface):
+    def __init__(self, straight_angle, acute_angle, angles, space_table=0.1):
+        self.straight_angle = straight_angle
+        self.acute_angle = acute_angle
+        self.angles = angles
+        self.space_table = space_table
+        
+        # TUTAJ TRZEBA DAC PARAMETRY O DZIALCE
+        self.Width_of_area = int(input('Please enter width of area PV [m]'))
+        self.lenght_of_area = int(input('Please enter lenght of area PV [m]'))
+        self.Width_table = int(input('Please enter width of table PV [m]: '))
+        self.Lenght_edge = int(input('Please enter lenght of the table PV [m]: '))
+        
+        self.Width_geographic = int(input('Please enter width geographic [*]: '))
+        self.Angle_panel = int(input('Please enter inclination angle of panels [*]: '))
+        #self.Height_edge = float(input('Please enter height from the bottom edge [m]: '))
+        
     
     def minimum_distance_x(self):
         self.result = (self.straight_angle - self.Width_geographic - self.acute_angle)
@@ -44,6 +38,9 @@ class farm_PV(Surface):
         result_2 = (self.Width_table * math.sin(math.radians(self.angles - self.result - self.Angle_panel))/(math.sin(math.radians(self.result))))
         return(f'Result the minimum distance between tables [m]: {result_2:.2f} ')
     
+    def panel_surface(self):
+        result_3 = (self.Width_of_area // (self.Width_table + self.space_table))
+        return (f'Number of panels in a row {result_3:.2f}')
     # ewentualny zapis do pliku tekstowego
 
 
@@ -65,6 +62,7 @@ while True:
         distance = farm_PV(90,23.27,180)
         print(distance.minimum_distance_x())
         print(distance.minimum_distance_z())
+        print(distance.panel_surface())
         print('-'*70)
         end_program = input('Do you want to end the program, y-yes, n-no?: ') # tutaj dopracowac aby mozna bylo tylko na t zamknac program
         if end_program == 'N' or end_program == 'n':  
@@ -87,3 +85,4 @@ while True:
             break
     else:
         print("Please enter value 1 or 2")
+        
