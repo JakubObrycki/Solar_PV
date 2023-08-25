@@ -64,7 +64,7 @@ while True:
         print(distance.minimum_distance_z())
         print(distance.panel_surface())
         print('-'*70)
-        end_program = input('Do you want to end the program, y-yes, n-no?: ') # tutaj dopracowac aby mozna bylo tylko na t zamknac program
+        end_program = input('Do you want to end the program, y-yes, n-no?: ')
         if end_program == 'N' or end_program == 'n':  
             continue
         else:
@@ -77,7 +77,7 @@ while True:
         distance_1 = farm_roof(90,23.27,180)
         print(distance_1.minimum_distance_x())
         print('-'*70)
-        end_program = input('Do you want to end the program, y-yes, n-no?: ') # tutaj dopracowac aby mozna bylo tylko na t zamknac program
+        end_program = input('Do you want to end the program, y-yes, n-no?: ')
         if end_program == 'N' or end_program == 'n':  
             continue
         else:
