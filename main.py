@@ -55,7 +55,7 @@ class farm_roof(farm_PV):
     pass
     '''
     def __init__(self, straight_angle, acute_angle, angles):
-        super().__init__(straight_angle, acute_angle, angles)
+        super().__init__(straight_angle, acute_angle, angles)  # w przypadku instalcji na dachu nalezy zmienic obliczenia i wziac inne odstepy od krawedzi dachu np 
     '''    
     
     
