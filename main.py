@@ -20,8 +20,8 @@ class farm_PV:
         # TUTAJ TRZEBA DAC PARAMETRY O DZIALCE
         self.Width_of_area = int(input('Please enter width of area PV [m]'))
         self.lenght_of_area = int(input('Please enter lenght of area PV [m]'))
-        self.Width_table = int(input('Please enter width of table PV [m]: '))
-        self.Lenght_edge = int(input('Please enter lenght of the table PV [m]: '))
+        self.Width_table = float(input('Please enter width of table PV [m]: '))
+        self.Lenght_edge = float(input('Please enter lenght of the table PV [m]: '))
         
         self.Width_geographic = int(input('Please enter width geographic [*]: '))
         self.Angle_panel = int(input('Please enter inclination angle of panels [*]: '))
@@ -38,7 +38,11 @@ class farm_PV:
         result_2 = (self.Width_table * math.sin(math.radians(self.angles - self.result - self.Angle_panel))/(math.sin(math.radians(self.result))))
         return(f'Result the minimum distance between tables [m]: {result_2:.2f} ')
     
-    def panel_surface(self):
+    def number_panels_row(self):
+        result_3 = (self.Width_of_area // (self.Width_table + self.space_table))
+        return (f'Number of panels in a row {result_3:.2f}')
+        
+    def number_panels_column(self):
         result_3 = (self.Width_of_area // (self.Width_table + self.space_table))
         return (f'Number of panels in a row {result_3:.2f}')
     # ewentualny zapis do pliku tekstowego
@@ -60,9 +64,8 @@ while True:
         print('You have chosen calculations for a PV farm on the ground')
         print('='*70)
         distance = farm_PV(90,23.27,180)
-        print(distance.minimum_distance_x())
-        print(distance.minimum_distance_z())
-        print(distance.panel_surface())
+        print('\n', distance.minimum_distance_x(),'\n', distance.minimum_distance_z(),'\n' , distance.number_panels_row()
+        ,'\n' ,distance.number_panels_column())
         print('-'*70)
         end_program = input('Do you want to end the program, y-yes, n-no?: ')
         if end_program == 'N' or end_program == 'n':  
