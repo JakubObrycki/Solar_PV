@@ -9,6 +9,8 @@ import math
     # mozna dac na koniec sume wszystkich paneli czy calkowita moc instalacji pv 
     # w trakcie obliczania doboru rzedow i ilosci paneli wziac trzeba pod uwage elementy charakterystyczne dla np dachu ze 0,5m od krawedzi zgodnie z norma jakos tam itp 
     # dla instalcji na ziemi natomiast musi pojawic sie (input np w zaleznosci od danych inwestora) lub podobnie jak w przypadku dachu dac np 1m od krawedzi dzialki
+        # dolozyc dekoratory
+
 class farm_PV:
     
     def __init__(self, straight_angle, acute_angle, angles, space_table=0.1):
