@@ -9,8 +9,9 @@ import math
     # mozna dac na koniec sume wszystkich paneli czy calkowita moc instalacji pv 
     # w trakcie obliczania doboru rzedow i ilosci paneli wziac trzeba pod uwage elementy charakterystyczne dla np dachu ze 0,5m od krawedzi zgodnie z norma jakos tam itp 
     # dla instalcji na ziemi natomiast musi pojawic sie (input np w zaleznosci od danych inwestora) lub podobnie jak w przypadku dachu dac np 1m od krawedzi dzialki
-        # dolozyc dekoratory
-
+    # dolozyc dekoratory
+    # mozna dodac wizualnie ustawienie paneli dla podanej powierzchni do zapisu tekstowego
+    
 class farm_PV:
     
     def __init__(self, straight_angle, acute_angle, angles, space_table=0.1):
@@ -24,10 +25,10 @@ class farm_PV:
         self.width_edge = float(input('Please enter width of the table PV [m]: '))
         self.Width_geographic = int(input('Please enter width geographic [*]: '))
         self.Angle_panel = int(input('Please enter inclination angle of panels [*]: '))
-        #self.Height_edge = float(input('Please enter height from the bottom edge [m]: '))
         
     def __str__(self):
-        print('Parameters accepted...') # cos tu nie dziala
+        title = ('Parameters accepted...')
+        return title
         
     def minimum_distance_x(self):
         self.result = (self.straight_angle - self.Width_geographic - self.acute_angle)
