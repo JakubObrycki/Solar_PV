@@ -42,8 +42,8 @@ class farm_PV:
         self.result_3 = (self.Width_of_area // (self.width_edge + self.space_table))
         return (f'Number of panels in a row {self.result_3:.2f}')
     
-    def number_panels_column(self): # tu cos nie halo, nie dziala ta metoda, rozkminic od tego
-        self.result_4 = (self.lenght_of_area // (self.lenght_table + self.result_1)) # tu cos z obliczeniami do poprawy
+    def number_panels_column(self): 
+        self.result_4 = (self.lenght_of_area // (self.lenght_table + self.result_1)) # tu cos z obliczeniami do poprawy delikatnie !!
         return (f'Number of panels in a column {self.result_4:.2f}')
     
     def suma(self):
@@ -52,11 +52,18 @@ class farm_PV:
 
     # ewentualny zapis do pliku tekstowego
 class farm_roof(farm_PV):
-    pass
-    '''
-    def __init__(self, straight_angle, acute_angle, angles):
+    
+    def __init__(self, straight_angle, acute_angle, angles, edge_distance=0.5):
         super().__init__(straight_angle, acute_angle, angles)  # w przypadku instalcji na dachu nalezy zmienic obliczenia i wziac inne odstepy od krawedzi dachu np 
-    '''    
+        self.edge_distance = edge_distance
+        
+    def number_panels_row(self):
+        self.result_3 = (self.Width_of_area // (self.width_edge + self.space_table + (2*self.edge_distance)))
+        return (f'Number of panels in a row {self.result_3:.2f}')
+    
+    def number_panels_column(self): 
+        self.result_4 = (self.lenght_of_area // (self.lenght_table + self.result_1)) # tu cos z obliczeniami do poprawy delikatnie !!
+        return (f'Number of panels in a column {self.result_4:.2f}')
     
     
 #if __name__ == "__main__":
@@ -81,7 +88,8 @@ while True:
         print('You have chosen calculations for a rooftop PV farm')
         print('='*70)
         distance_1 = farm_roof(90,23.27,180)
-        print(distance_1.minimum_distance_x())
+        print('\n',distance_1.minimum_distance_x(),'\n',distance_1.number_panels_row(),'\n',
+        distance_1.number_panels_column(),'\n',distance_1.suma())
         print('-'*70)
         end_program = input('Do you want to end the program, y-yes, n-no?: ')
         if end_program == 'N' or end_program == 'n':  
