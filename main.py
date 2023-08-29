@@ -18,8 +18,8 @@ class farm_PV:
         self.space_table = space_table
         self.Width_of_area = int(input('Please enter width of area PV [m]'))
         self.lenght_of_area = int(input('Please enter lenght of area PV [m]'))
-        self.Width_table = float(input('Please enter width of table PV [m]: '))
-        self.Lenght_edge = float(input('Please enter lenght of the table PV [m]: '))
+        self.lenght_table = float(input('Please enter lenght of table PV [m]: '))
+        self.width_edge = float(input('Please enter width of the table PV [m]: '))
         self.Width_geographic = int(input('Please enter width geographic [*]: '))
         self.Angle_panel = int(input('Please enter inclination angle of panels [*]: '))
         #self.Height_edge = float(input('Please enter height from the bottom edge [m]: '))
@@ -29,21 +29,21 @@ class farm_PV:
         
     def minimum_distance_x(self):
         self.result = (self.straight_angle - self.Width_geographic - self.acute_angle)
-        result_1 = (math.sin(math.radians(self.Angle_panel)) * self.Width_table)/(math.tan(math.radians(self.result)))
+        self.result_1 = (math.sin(math.radians(self.Angle_panel)) * self.lenght_table)/(math.tan(math.radians(self.result)))
         print('='*35,f'Calculations for {self.__class__.__name__}...','='*35)
-        return (f'Result the minimum distance between tables ("in the light") [m]: {result_1:.2f} ')
+        return (f'Result the minimum distance between tables ("in the light") [m]: {self.result_1:.2f} ')
         print(result_1)
 
     def minimum_distance_z(self):
-        result_2 = (self.Width_table * math.sin(math.radians(self.angles - self.result - self.Angle_panel))/(math.sin(math.radians(self.result))))
+        result_2 = (self.lenght_table * math.sin(math.radians(self.angles - self.result - self.Angle_panel))/(math.sin(math.radians(self.result))))
         return (f'Result the minimum distance between tables [m]: {result_2:.2f} ')
     
     def number_panels_row(self):
-        self.result_3 = (self.Width_of_area // (self.Width_table + self.space_table))
+        self.result_3 = (self.Width_of_area // (self.width_edge + self.space_table))
         return (f'Number of panels in a row {self.result_3:.2f}')
     
     def number_panels_column(self): # tu cos nie halo, nie dziala ta metoda, rozkminic od tego
-        self.result_4 = (self.lenght_of_area // (self.Lenght_edge + self.result_3)) # tu cos z obliczeniami do poprawy
+        self.result_4 = (self.lenght_of_area // (self.lenght_table + self.result_1)) # tu cos z obliczeniami do poprawy
         return (f'Number of panels in a column {self.result_4:.2f}')
     
     def suma(self):
@@ -67,7 +67,8 @@ while True:
         print('You have chosen calculations for a PV farm on the ground')
         print('='*70)
         distance = farm_PV(90,23.27,180)
-        print('\n',distance.minimum_distance_x(),'\n',distance.minimum_distance_z(),'\n',distance.number_panels_row(),'\n',distance.number_panels_column(),'\n', distance.suma())
+        print('\n',distance.minimum_distance_x(),'\n',distance.minimum_distance_z(),'\n',distance.number_panels_row(),'\n',
+        distance.number_panels_column(),'\n', distance.suma())
         print('-'*70)
         end_program = input('Do you want to end the program, y-yes, n-no?: ')
         if end_program == 'N' or end_program == 'n':  
