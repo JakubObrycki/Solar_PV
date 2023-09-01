@@ -1,11 +1,10 @@
 import math
 
-# TA KLASA TYCZY SIE NOWEGO ALGORYTMU POSTEPOWANIA ( DO OBLICZANIA ILOSCI PANELI NA DZIALCE LUB DACHU)
         
     # funckje do obliczania ilosci rzedow paneli na podstawie podania powierzchni pod instalacja ( w zaleznosci od usytuowania czy poziomo czy pionoowo )
     # czyli trzeba wziac pod uwage parametry paneli
     # w celu obliczenia ilosci paneli oraz rzedow 
-    # nalezy na koncu dac informacje o tym ze aplikacja nie bierze pod uwage zacienienia czyli obiektow znajdujacych sie obok instalacji
+   
     # mozna dac na koniec sume wszystkich paneli czy calkowita moc instalacji pv 
     # w trakcie obliczania doboru rzedow i ilosci paneli wziac trzeba pod uwage elementy charakterystyczne dla np dachu ze 0,5m od krawedzi zgodnie z norma jakos tam itp 
     # dla instalcji na ziemi natomiast musi pojawic sie (input np w zaleznosci od danych inwestora) lub podobnie jak w przypadku dachu dac np 1m od krawedzi dzialki
@@ -52,8 +51,8 @@ class farm_PV:
     def suma(self):
         total = self.result_3 + self.result_4
         return (f'Total of all panels {total}')
-
-    # ewentualny zapis do pliku tekstowego
+        
+        
 class farm_roof(farm_PV):
     
     def __init__(self, straight_angle, acute_angle, angles, edge_distance=0.5):
@@ -68,8 +67,6 @@ class farm_roof(farm_PV):
         self.result_4 = (self.lenght_of_area // (self.lenght_table + self.result_1)) # tu cos z obliczeniami do poprawy delikatnie !!
         return (f'Number of panels in a column {self.result_4:.2f}')
     
-    
-#if __name__ == "__main__":
 while True:
     print('-'*70)
     examples = int(input('Enter 1-if PV farm or 2-if rooftop farm PV: '))
