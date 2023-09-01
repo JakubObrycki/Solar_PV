@@ -45,7 +45,7 @@ class farm_PV:
         return (f'Number of panels in a row {self.result_3:.2f}')
     
     def number_panels_column(self): 
-        self.result_4 = (self.lenght_of_area // (self.lenght_table + self.result_1)) # tu cos z obliczeniami do poprawy delikatnie !!
+        self.result_4 = (self.lenght_of_area // (self.lenght_table + self.result_1)) 
         return (f'Number of panels in a column {self.result_4:.2f}')
     
     def suma(self):
@@ -56,7 +56,7 @@ class farm_PV:
 class farm_roof(farm_PV):
     
     def __init__(self, straight_angle, acute_angle, angles, edge_distance=0.5):
-        super().__init__(straight_angle, acute_angle, angles)  # w przypadku instalcji na dachu nalezy zmienic obliczenia i wziac inne odstepy od krawedzi dachu np 
+        super().__init__(straight_angle, acute_angle, angles) 
         self.edge_distance = edge_distance
         
     def number_panels_row(self):
