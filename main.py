@@ -18,8 +18,8 @@ class farm_PV:
         self.acute_angle = acute_angle
         self.angles = angles
         self.space_table = space_table
-        self.Width_of_area = int(input('Please enter width of area PV [m]: '))
-        self.lenght_of_area = int(input('Please enter lenght of area PV [m]: '))
+        self.Width_of_area = int(input('Please enter width of area PV [m]'))
+        self.lenght_of_area = int(input('Please enter lenght of area PV [m]'))
         self.lenght_table = float(input('Please enter lenght of table PV [m]: '))
         self.width_edge = float(input('Please enter width of the table PV [m]: '))
         self.Width_geographic = int(input('Please enter width geographic [*]: '))
@@ -67,37 +67,38 @@ class farm_roof(farm_PV):
         self.result_4 = (self.lenght_of_area // (self.lenght_table + self.result_1)) # tu cos z obliczeniami do poprawy delikatnie !!
         return (f'Number of panels in a column {self.result_4:.2f}')
 
-if __name__ == "__main__":
-    while True:
+while True:
+    print('-'*70)
+    examples = int(input('Enter 1-if PV farm or 2-if rooftop farm PV: '))
+    if examples == 1:
+        print('You have chosen calculations for a PV farm on the ground')
+        print('='*70)
+        distance = farm_PV(90,23.27,180)
+        print('\n',distance.minimum_distance_x(),'\n',distance.minimum_distance_z(),'\n',distance.number_panels_row(),'\n',
+        distance.number_panels_column(),'\n', distance.sum())
         print('-'*70)
-        examples = int(input('Enter 1-if PV farm or 2-if rooftop farm PV: '))
-        if examples == 1:
-            print('You have chosen calculations for a PV farm on the ground')
-            print('='*70)
-            distance = farm_PV(90,23.27,180)
-            print('\n',distance.minimum_distance_x(),'\n',distance.minimum_distance_z(),'\n',distance.number_panels_row(),'\n',
-            distance.number_panels_column(),'\n', distance.sum())
-            print('-'*70)
-            end_program = input('Do you want to end the program, y-yes, n-no?: ')
-            if end_program == 'N' or end_program == 'n':  
-                continue
-            else:
-                print('End')
-                break
-           
-        elif examples == 2:
-            print('You have chosen calculations for a rooftop PV farm')
-            print('='*70)
-            distance_1 = farm_roof(90,23.27,180)
-            print('\n',distance_1.minimum_distance_x(),'\n',distance_1.number_panels_row(),'\n',
-            distance_1.number_panels_column(),'\n',distance_1.sum())
-            print('-'*70)
-            end_program = input('Do you want to end the program, y-yes, n-no?: ')
-            if end_program == 'N' or end_program == 'n':  
-                continue
-            else:
-                print('End')
-                break
+        end_program = input('Do you want to end the program, y-yes, n-no?: ')
+        if end_program == 'N' or end_program == 'n':  
+            continue
         else:
-            print("Please enter value 1 or 2")
+            print('End')
+            break
+           
+    elif examples == 2:
+        print('You have chosen calculations for a rooftop PV farm')
+        print('='*70)
+        distance_1 = farm_roof(90,23.27,180)
+        print('\n',distance_1.minimum_distance_x(),'\n',distance_1.number_panels_row(),'\n',
+        distance_1.number_panels_column(),'\n',distance_1.sum())
+        print('-'*70)
+        end_program = input('Do you want to end the program, y-yes, n-no?: ')
+        if end_program == 'N' or end_program == 'n':  
+            continue
+        else:
+            print('End')
+            break
+    else:
+        print("Please enter value 1 or 2")
         
+if __name__ == "__main__":
+    main()
