@@ -48,7 +48,7 @@ class farm_PV:
         self.result_4 = (self.lenght_of_area // (self.lenght_table + self.result_1)) # tu cos z obliczeniami do poprawy delikatnie !!
         return (f'Number of panels in a column {self.result_4:.2f}')
     
-    def suma(self):
+    def sum(self):
         total = self.result_3 + self.result_4
         return (f'Total of all panels {total}')
         
@@ -76,7 +76,7 @@ if __name__ == "__main__":
             print('='*70)
             distance = farm_PV(90,23.27,180)
             print('\n',distance.minimum_distance_x(),'\n',distance.minimum_distance_z(),'\n',distance.number_panels_row(),'\n',
-            distance.number_panels_column(),'\n', distance.suma())
+            distance.number_panels_column(),'\n', distance.sum())
             print('-'*70)
             end_program = input('Do you want to end the program, y-yes, n-no?: ')
             if end_program == 'N' or end_program == 'n':  
@@ -90,7 +90,7 @@ if __name__ == "__main__":
             print('='*70)
             distance_1 = farm_roof(90,23.27,180)
             print('\n',distance_1.minimum_distance_x(),'\n',distance_1.number_panels_row(),'\n',
-            distance_1.number_panels_column(),'\n',distance_1.suma())
+            distance_1.number_panels_column(),'\n',distance_1.sum())
             print('-'*70)
             end_program = input('Do you want to end the program, y-yes, n-no?: ')
             if end_program == 'N' or end_program == 'n':  
