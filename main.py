@@ -56,6 +56,7 @@ class farm_roof(farm_PV):
         self.result_4 = (self.lenght_of_area // (self.lenght_table + self.result_1)) # tu cos z obliczeniami do poprawy delikatnie !!
         return (f'Number of panels in a column {self.result_4:.2f}')
 
+if __name__ == "__main__":
 while True:
     print('-'*70)
     examples = int(input('Enter 1-if PV farm or 2-if rooftop farm PV: '))
@@ -88,6 +89,5 @@ while True:
             break
     else:
         print("Please enter value 1 or 2")
-        
-if __name__ == "__main__":
     main()
+        
