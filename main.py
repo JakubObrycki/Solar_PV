@@ -7,8 +7,8 @@ class farm_PV:
         self.acute_angle = acute_angle
         self.angles = angles
         self.space_table = space_table
-        self.Width_of_area = int(input('Please enter width of area PV [m]'))
-        self.lenght_of_area = int(input('Please enter lenght of area PV [m]'))
+        self.Width_of_area = int(input('Please enter width of area PV [m]: '))
+        self.lenght_of_area = int(input('Please enter lenght of area PV [m]: '))
         self.lenght_table = float(input('Please enter lenght of table PV [m]: '))
         self.width_edge = float(input('Please enter width of the table PV [m]: '))
         self.Width_geographic = int(input('Please enter width geographic [*]: '))
