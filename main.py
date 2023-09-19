@@ -23,7 +23,6 @@ class farm_PV:
         self.result_1 = (math.sin(math.radians(self.Angle_panel)) * self.lenght_table)/(math.tan(math.radians(self.result)))
         print('='*35,f'Calculations for {self.__class__.__name__}...','='*35)
         return (f'Result the minimum distance between tables ("in the light") [m]: {self.result_1:.2f} ')
-        print(result_1)
 
     def minimum_distance_z(self):
         result_2 = (self.lenght_table * math.sin(math.radians(self.angles - self.result - self.Angle_panel))/(math.sin(math.radians(self.result))))
