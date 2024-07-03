@@ -33,7 +33,7 @@ class farm_PV:
         return (f'Number of panels in a row {self.result_3:.2f}')
     
     def number_panels_column(self): 
-        self.result_4 = (self.lenght_of_area // (self.lenght_table + self.result_1)) # tu cos z obliczeniami do poprawy delikatnie !!
+        self.result_4 = (self.lenght_of_area // (self.lenght_table + self.result_1))
         return (f'Number of panels in a column {self.result_4:.2f}')
     
     def sum(self):
